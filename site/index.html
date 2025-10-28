@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+  <title>Manitanın Bebesi 🍪</title>
+  <link rel="icon" type="image/png" href="kedi.png.jpg"> <!-- Buraya favicon ekledik -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff2e6; /* Tatlı krem arka plan */
+      background-image: radial-gradient(circle, rgba(255, 224, 178, 0.3) 15%, transparent 16%), 
+                        radial-gradient(circle, rgba(255, 224, 178, 0.3) 15%, transparent 16%);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px; /* Basit kurabiye deseni */
+      text-align: center;
+      padding: 50px;
+      color: #6b4226; /* tatlı kahverengi yazı */
+    }
+
+    h1 {
+      color: #d2691e; /* Kahverengi ton */
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #8b4513;
+      margin-bottom: 40px;
+    }
+
+    /* Galeri stili */
+    .galeri {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .galeri img {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* Kare fotoğraf */
+      object-fit: cover; /* Orantıyı koru ve kes */
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .galeri img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Modal (büyüyen foto) */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+  const sifre = "gaymiyim"; // Parolayı buraya koy
+  const giris = prompt("Bu siteye girmek için şifreyi girin:");
+
+  if(giris !== sifre){
+    alert("Şifre yanlış! Sayfa kapatılıyor.");
+    window.close(); // veya kullanıcıyı başka bir sayfaya yönlendirebilirsin
+  }
+</script>
+
+
+  <h1>Otistik 🍪</h1>
+  <p>Bu Labubu Değil Bu Bazuzu 💕</p>
+
+  <div class="galeri">
+    <img src="foto1.jpg.jpeg" alt="Foto 1">
+    <img src="foto2.jpg.jpeg" alt="Foto 2">
+    <img src="foto3.jpg.jpeg" alt="Foto 3">
+    <img src="foto4.jpg.jpeg" alt="Foto 4">
+    <img src="foto5.jpg.jpeg" alt="Foto 5">
+  </div>
+
+  <!-- Modal kutusu -->
+  <div id="modal">
+    <img id="modalImg" src="">
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+
+    document.querySelectorAll('.galeri img').forEach(img => {
+      img.onclick = () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      }
+    });
+
+    modal.onclick = () => {
+      modal.style.display = "none";
+    };
+  </script>
+
+</body>
+</html>
